@@ -1,6 +1,6 @@
 window.onload = function() {
-/*	setAge();*/
-	addPrintTrigger();
+    addPrintTrigger();
+    setAge();
 };
 
 function printTrigger(elementId) {
@@ -10,12 +10,20 @@ function printTrigger(elementId) {
 };
 
 function addPrintTrigger() {
-	var getMain = document.getElementsByTagName('main')[0];
-	console.log(getMain);
-	var iFramePdf = document.createElement('iframe');
+    var iFramePdf = document.createElement('iframe');
     iFramePdf.id = "iFramePdf";
     iFramePdf.src = "Nicolas-Marshall-Resume.pdf";
     iFramePdf.style.display = 'none';
-    console.log(iFramePdf);
     document.getElementsByTagName('body')[0].appendChild(iFramePdf);
+};
+
+function setAge() {
+    var birthDate = new Date('1991-10-17');
+    var today = new Date();
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    document.getElementById('age').textContent = age;
 };
