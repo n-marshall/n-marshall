@@ -12,7 +12,7 @@ function printTrigger(elementId) {
 function addPrintTrigger() {
     var iFramePdf = document.createElement('iframe');
     iFramePdf.id = "iFramePdf";
-    iFramePdf.src = "Nicolas-Marshall-Resume.pdf";
+    iFramePdf.src = "pdf/Nicolas-Marshall-Resume.pdf";
     iFramePdf.style.display = 'none';
     document.getElementsByTagName('body')[0].appendChild(iFramePdf);
 };
