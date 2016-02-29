@@ -44,9 +44,9 @@
     <div class="body-bg">
     </div>
     <div class="actions mobile desktop">
-        <a class="button action material primary" href="#skills" style="margin-bottom: 3rem">Contact me !</i></a>
-        <a class="button action material secondary" href="#skills"><i class="icon-print"></i></a>
-        <a class="button action material secondary" href="#skills"><i class="icon-pdf"></i></a>
+        <a class="button action material primary" href="#" style="margin-bottom: 3rem">Contact me !</i></a>
+        <a class="button action material secondary" href="#" onclick="printTrigger('iFramePdf');"><i class="icon-print"></i></a>
+        <a class="button action material secondary" href="pdf/Nicolas-Marshall-Resume.pdf" download="Nicolas-Marshall-Resume.pdf"><i class="icon-pdf"></i></a>
     </div>
     <main class="wrapper container material">
         <section class="container" id="header">
@@ -220,9 +220,7 @@
             <section class="container">
             </section>
         </footer>
-        <iframe src="pdf/Nicolas-Marshall-Resume.pdf" style="display:none;"></iframe>
-        <object id="PDFDoc" type="application/pdf" data="pdf/Nicolas-Marshall-Resume.pdf" height="0" width="0"></object>.
-        <input type="button" value="Print" onclick="document.getElementById('PDFDoc').print();" />
+        <iframe id="iFramePdf" src="pdf/Nicolas-Marshall-Resume.pdf" style="display:none;"></iframe>
     </main>
 </body>
 
