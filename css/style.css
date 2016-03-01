@@ -17,8 +17,61 @@ a {
     margin-right: 0.5em;
 }
 
+.flex-row {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: baseline;
+}
+
+.flex-column {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.row-head {
+    min-width: 15rem;
+}
+
+.row-head.mini {
+    text-transform: uppercase;
+    font-size: 85%;
+    font-weight: bold;
+}
+
+section:not(#education) .row-text {
+    width: calc(100% - 15rem);
+}
+
+h5,
+h6 {
+    text-transform: uppercase;
+    font-weight: 700;
+    white-space: nowrap;
+    letter-spacing: 0.15em;
+}
+
+h6 {
+    font-size: 110%;
+}
+
+h5 {
+    letter-spacing: 0.12em;
+    font-size: 3rem;
+    margin: 0;
+    line-height: 1.2em;
+}
+
+.mobile,
+.desktop,
+.print {
+    display: none;
+}
+
+
+/*sections*/
+
 section:not(:first-of-type):not(:nth-of-type(2)) {
-    border-top: 1px solid #e4e4e4;
+    border-top: 1px solid hsla(207, 18%, 42%, 0.5);
 }
 
 .wrapper {
@@ -41,30 +94,8 @@ section:not(:first-of-type):not(:nth-of-type(2)) {
     padding-top: 2rem;
 }
 
-.flex-row {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: baseline;
-}
 
-h5,
-h6 {
-    text-transform: uppercase;
-    font-weight: 700;
-    white-space: nowrap;
-    letter-spacing: 0.15em;
-}
-
-h6 {
-    font-size: 110%;
-}
-
-h5 {
-    letter-spacing: 0.12em;
-    font-size: 3rem;
-    margin: 0;
-    line-height: 1.2em;
-}
+/*experience*/
 
 .experience-item {
     padding-bottom: 0.6em;
@@ -103,18 +134,8 @@ h5 {
     font-size: 85%;
 }
 
-footer {
-    background-color: hsl(207, 5%, 80%);
-    padding: 1.4rem 0;
-}
 
-.row-head {
-    min-width: 15rem;
-}
-
-.row-text {
-    width: calc(100% - 15rem);
-}
+/*skills*/
 
 .skill {
     margin-right: 0.5rem;
@@ -124,12 +145,6 @@ footer {
 
 .skill:not(:last-of-type):after {
     content: ',';
-}
-
-.row-head.mini {
-    text-transform: uppercase;
-    font-size: 85%;
-    font-weight: bold;
 }
 
 .skill-1 {
@@ -155,63 +170,8 @@ footer {
     font-weight: 100;
 }
 
-.mobile {
-    display: none;
-}
 
-.desktop {
-    display: none;
-}
-
-.print {
-    display: none;
-}
-
-
-/* .wrapper>.container>.text-container {
-    padding: 1.5rem 8rem 1.5rem 6rem;
-} */
-
-@media only screen and (min-width: 801px) {
-    html {
-        background: linear-gradient(to right bottom, white 0%, #eaebed 100%);
-        background: -webkit-radial-gradient(0% 0%, ellipse cover, hsl(10, 3%, 95%) 0%, hsl(10, 3%, 85%) 100%);
-        background: #ECEEED;
-    }
-    .wrapper {
-        margin: 10rem 16%;
-        box-shadow: 2rem 2rem 6rem 0.5rem rgba(0, 0, 0, 0.2);
-    }
-    .desktop {
-        display: block;
-    }
-    .body-bg {
-        position: absolute;
-        top: 0;
-        height: 420px;
-        width: 100%;
-        background: url(../img/forest.jpg) top center no-repeat;
-        background-size: cover;
-    }
-    .body-bg::after {
-        position: absolute;
-        content: '';
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: rgba(44, 51, 64, 0.6);
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    .mobile {
-        display: block;
-    }
-    .wrapper>.text-container {
-        margin: 3rem 4rem 3rem 4rem;
-    }
-}
+/*header*/
 
 .profile-picture {
     height: 60vw;
@@ -223,11 +183,6 @@ footer {
     background-size: 210%;
     border-radius: 50%;
     margin: 2rem auto;
-}
-
-.flex-column {
-    display: flex;
-    flex-flow: column nowrap;
 }
 
 
@@ -259,17 +214,82 @@ footer {
     align-items: baseline;
 }
 
+
+/*smartphones*/
+
+@media only screen and (max-width: 800px) {
+    .mobile {
+        display: block;
+    }
+    .wrapper>.text-container {
+        margin: 3rem 4rem 3rem 4rem;
+    }
+}
+
 @media screen and (max-width:600px) {
-    .meta>*:not(: first-child):before {
+    .meta>*:not(:first-child):before {
         content: '|';
         margin: 0 0.5em;
+    }
+}
+
+
+/*smartphones and desktop*/
+
+@media (max-width: 720px) {
+    .header-flex>div {
+        text-align: center;
     }
     .social {
         display: flex;
         flex-flow: row nowrap;
+        justify-content: center;
+        margin: 2rem 0 4rem 0;
+    }
+    .social-item {
+        flex: 0 1 6%;
+    }
+    .social-item i {
+        padding-bottom: 0.5em;
+        border-bottom: 1px solid hsla(207, 18%, 42%, 0.8);
     }
     .social .social-text {
         display: none;
+    }
+}
+
+
+/*desktop*/
+
+@media only screen and (min-width: 801px) {
+    html {
+        background: linear-gradient(to right bottom, white 0%, #eaebed 100%);
+        background: -webkit-radial-gradient(0% 0%, ellipse cover, hsl(10, 3%, 95%) 0%, hsl(10, 3%, 85%) 100%);
+        background: #ECEEED;
+    }
+    .wrapper {
+        margin: 10rem calc(44% - 44rem);
+        box-shadow: 2rem 2rem 6rem 0.5rem rgba(0, 0, 0, 0.2);
+    }
+    .desktop {
+        display: block;
+    }
+    .body-bg {
+        position: absolute;
+        top: 0;
+        height: 420px;
+        width: 100%;
+        background: url(../img/forest.jpg) top center no-repeat;
+        background-size: cover;
+    }
+    .body-bg::after {
+        position: absolute;
+        content: '';
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(44, 51, 64, 0.6);
     }
 }
 
@@ -297,10 +317,6 @@ print {
         flex-flow: column nowrap;
         margin-top: 0.2rem;
     }
-}
-
-@media (min-width: 601px),
-print {
     .profile-picture {
         margin-right: 3rem;
     }
@@ -308,7 +324,8 @@ print {
         min-width: 22rem;
     }
     .flex-row>.row-text {
-        width: calc(100% - 22rem);
+        width: calc(100% - 22rem) !important;
+        /*! to beat :not(#education) specificity*/
     }
 }
 
@@ -342,22 +359,18 @@ print {
         background: hsl(207, 2%, 50%);
         font-size: 2rem;
     }
+    /*
     .profile-picture {
         filter: grayscale(50%);
         -webkit-filter: grayscale(70%);
-    }
+    }*/
 }
 
-@media (min-width: 769px),
+@media (min-width: 721px),
 print {
     .header-text {
         text-align: left;
     }
-    /* 
-    .header-text {
-        text-align: center;
-        justify-content: center;
-    } */
     .header-flex {
         display: flex;
         flex-flow: row nowrap;
@@ -366,10 +379,6 @@ print {
     #header {
         position: relative;
         color: white;
-        /* 
-    background-color: hsl(200, 42%, 47%);
-    background-image: url('../img/header-background.png');
-    background-size: cover; */
         background-color: rgba(0, 0, 0, 0.75);
         border-bottom: 4px solid rgba(255, 255, 255, 0.5);
     }
@@ -385,6 +394,14 @@ print {
         background-size: cover;
     }
 }
+
+footer {
+    background-color: hsl(207, 5%, 80%);
+    padding: 1.4rem 0;
+}
+
+
+/*print specific styles*/
 
 @page {
     margin: 0;
