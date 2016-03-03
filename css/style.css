@@ -4,6 +4,10 @@ body {
     -webkit-print-color-adjust: exact;
 }
 
+input[type="submit"] {
+    border: none;
+}
+
 html {
     font-size: 8px;
 }
@@ -71,7 +75,7 @@ h5 {
 /*sections*/
 
 section:not(:first-of-type):not(:nth-of-type(2)) {
-    border-top: 1px solid hsla(207, 18%, 42%, 0.5);
+    border-top: 1px solid hsla(207, 18%, 42%, 0.3);
 }
 
 .wrapper {
@@ -227,7 +231,7 @@ section:not(:first-of-type):not(:nth-of-type(2)) {
 }
 
 @media screen and (max-width:600px) {
-    .meta>*:not(:first-child):before {
+    .meta>*:not(: first-child):before {
         content: '|';
         margin: 0 0.5em;
     }
@@ -329,43 +333,6 @@ print {
     }
 }
 
-@media screen {
-    a {
-        text-decoration: underline;
-    }
-    .material {
-        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.12);
-        border: none;
-    }
-    .actions {
-        position: fixed;
-        right: 2rem;
-        top: 1rem;
-        z-index: 1;
-    }
-    .actions>.action {
-        height: 4rem;
-        margin-bottom: 1rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .material.primary {
-        height: 4.5rem;
-        background-color: hsl(148, 60%, 47%);
-        font-size: 1.5rem;
-    }
-    .material.secondary {
-        background: hsl(207, 2%, 50%);
-        font-size: 2rem;
-    }
-    /*
-    .profile-picture {
-        filter: grayscale(50%);
-        -webkit-filter: grayscale(70%);
-    }*/
-}
-
 @media (min-width: 721px),
 print {
     .header-text {
@@ -398,6 +365,91 @@ print {
 footer {
     background-color: hsl(207, 5%, 80%);
     padding: 1.4rem 0;
+}
+
+
+/*contact*/
+
+input[type='email'],
+textarea {
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid;
+}
+
+input[type='email']:focus,
+textarea:focus {
+    border: none;
+    border-bottom: 1px solid;
+}
+
+.contact-layer {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+}
+.dim {
+ background: rgba(0,0,0,0.2);
+}
+
+.card {
+    background: #fff;
+    padding: 2rem;
+}
+
+.contact {
+    position: absolute;
+    transition: all 0.5s ease 0s;
+    top: -200vh;
+    width: 100%;
+    max-width: 80rem;
+    margin: 10rem calc(52% - 44rem);
+    box-shadow: 0 8px 48px rgba(0, 0, 0, 0.06), 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.contact.active {
+    top: 9vh;
+}
+
+@media screen {
+    a {
+        text-decoration: underline;
+    }
+    .material,
+    .button.general {
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.12);
+        border: none;
+    }
+    .actions {
+        position: fixed;
+        right: 2rem;
+        top: 1rem;
+        z-index: 1;
+    }
+    .actions>.action {
+        height: 4rem;
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .material.primary {
+        height: 4.5rem;
+        background-color: hsl(148, 60%, 47%);
+        font-size: 1.5rem;
+    }
+    .material.secondary {
+        background: hsl(207, 2%, 50%);
+        font-size: 2rem;
+    }
+    /*
+    .profile-picture {
+        filter: grayscale(50%);
+        -webkit-filter: grayscale(70%);
+    }*/
 }
 
 
