@@ -1,6 +1,7 @@
 window.onload = function() {
-    addPrintTrigger();
     setAge();
+    addPrintTrigger();
+    addEventListeners();
 };
 
 function printTrigger(elementId) {
@@ -27,3 +28,24 @@ function setAge() {
     }
     document.getElementById('age').textContent = age;
 };
+
+var isContactActive = false;
+
+function toggleContact() {
+	isContactActive = !isContactActive;
+	document.getElementsByClassName('contact-layer')[0].classList.toggle('dim');
+	document.getElementsByClassName('contact')[0].classList.toggle('active');
+	document.getElementById("form-email").focus();
+};
+
+function addEventListeners() {
+	document.addEventListener()
+};
+
+function closeContact() {
+	if (isContactActive) {
+		toggleContact();
+	}
+};
+
+

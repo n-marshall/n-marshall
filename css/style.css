@@ -390,9 +390,12 @@ textarea:focus {
     left: 0;
     right: 0;
     overflow: hidden;
+    background-color: rgba(0, 0, 0, 0);
+    transition: all 0.5s ease 0s;
 }
+
 .dim {
- background: rgba(0,0,0,0.2);
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .card {

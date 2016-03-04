@@ -44,7 +44,7 @@
 <body>
     <div class="body-bg"></div>
     <div class="actions mobile desktop">
-        <a class="button action material primary" style="margin-bottom: 3rem">Contact me !</i></a>
+        <a class="button action material primary" onclick="toggleContact();" style="margin-bottom: 3rem">Contact me !</i></a>
         <a class="button action material secondary" onclick="printTrigger('iFramePdf');"><i class="icon-print"></i></a>
         <a class="button action material secondary" href="pdf/Nicolas-Marshall-Resume.pdf" download="Nicolas-Marshall-Resume.pdf"><i class="icon-pdf"></i></a>
     </div>
@@ -221,11 +221,11 @@
             </section>
         </footer>
     </main>
-    <div class="contact-layer dim">
+    <div class="contact-layer" onclick="closeContact();">
         <!-- <div class="material card typeform-widget" data-url="https://nicolasmarshall.typeform.com/to/p5S0yM" data-text="N-marshall - Contact me !"></div> -->
         <form action="http://formspree.io/marshall.nicolas@gmail.com" method="POST" class="card contact">
             <label for="email">Your email address</label>
-            <input type="email" name="_replyto">
+            <input type="email" name="_replyto" id="form-email">
             <label for="message">Your message</label>
             <textarea name="message" style="height:19em;"></textarea>
             <input type="submit" value="Send" class="button material primary">
