@@ -183,8 +183,8 @@ section:not(:first-of-type):not(:nth-of-type(2)) {
     width: 60vw;
     max-width: 15rem;
     background-color: white;
-    background: url(../img/wow.jpg) center top no-repeat;
-    background-size: 210%;
+    background: url(../img/profile.jpg) center top no-repeat;
+    background-size: cover;
     border-radius: 50%;
     margin: 2rem auto;
 }
