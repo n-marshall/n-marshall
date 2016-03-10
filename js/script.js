@@ -1,48 +1,82 @@
-window.onload = function() {
-    setAge();
-    addPrintIframe();
-    addEventListeners();
-};
-
 var contactLayer = document.getElementById('contact-layer');
-var contact = document.getElementById('contact');
+var contactForm = document.getElementById('contact-form');
 var emailField = document.getElementById('email-field');
 var messageField = document.getElementById('message-field');
 var submitButton = document.getElementById('submit');
-var isContactActive = false;
+
+window.onload = function() {
+    setAge();
+    contactForm.isActive = false;
+    addEventListeners();
+    addPrintIframe();
+}
 
 function addEventListeners() {
-    document.addEventListener("keydown", keyDownHandler, false);
-    document.addEventListener('click', clickHandler, false);
-};
+    document.addEventListener("keydown", keyDownHandler);
+    document.addEventListener('click', clickHandler);
+    document.addEventListener('focusout', focusOutHandler);
+    document.addEventListener('backbutton', backButtonHandler);
+    contactForm.addEventListener('submit', submitHandler);
+}
 
 function keyDownHandler(e) {
     var keyCode = e.which;
     if (keyCode == 27) {
         closeContact();
-        console.log(e.target)
     }
-    if (keyCode == 13 && e.target === emailField) {
+    if ((keyCode == 13) && e.target === emailField) {
         e.preventDefault();
-        if (emailField.checkValidity()) {
-            messageField.focus();
-        } else {
-        	submitButton.click();
-        }
+        updateValidityHint(e.target);
+        messageField.focus();
     }
-};
+    if (e.target.parentNode.classList.contains('invalid')) {
+        updateValidityHint(e.target);
+    }
+}
 
 function clickHandler(e) {
-    if (isContactActive && e.target === contactLayer) {
+    if (contactForm.isActive && e.target === contactLayer) {
         closeContact();
+    }/*
+    if (e.target === messageField) {
+        console.log(contactForm.message)
+    }*/
+}
+
+function focusOutHandler(e) {
+    if (e.target === emailField || e.target === messageField) {
+        updateValidityHint(e.target);
     }
-};
+}
+
+function updateValidityHint(field) {
+    if (field === emailField || field === messageField) {
+        if (field.checkValidity()) {
+            field.parentNode.classList.remove('invalid');
+        } else {
+            field.parentNode.classList.add('invalid');
+        }
+    }
+}
+
+function submitHandler(e) {
+    e.preventDefault();
+    postForm(contactForm);
+}
+
+function backButtonHandler() {
+    if (contactForm.isActive) {
+        closeContact();
+    } else {
+        navigator.app.exitApp();
+    }
+}
 
 function triggerPrint(elementId) {
     var getMyFrame = document.getElementById(elementId);
     getMyFrame.focus();
     getMyFrame.contentWindow.print();
-};
+}
 
 function addPrintIframe() {
     var iFramePdf = document.createElement('iframe');
@@ -50,7 +84,7 @@ function addPrintIframe() {
     iFramePdf.src = "pdf/Nicolas-Marshall-Resume.pdf";
     iFramePdf.style.display = 'none';
     document.body.appendChild(iFramePdf);
-};
+}
 
 function setAge() {
     var birthDate = new Date('1991-10-17');
@@ -61,17 +95,17 @@ function setAge() {
         age--;
     }
     document.getElementById('age').textContent = age;
-};
+}
 
 function toggleContact() {
-    isContactActive = !isContactActive;
+    contactForm.isActive = !contactForm.isActive;
     contactLayer.classList.toggle('dim');
-    contact.classList.toggle('active');
+    contactForm.classList.toggle('active');
     emailField.focus();
-};
+}
 
 function closeContact() {
-    if (isContactActive) {
+    if (contactForm.isActive) {
         toggleContact();
     }
-};
+}

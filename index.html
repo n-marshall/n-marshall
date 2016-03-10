@@ -38,6 +38,7 @@
     <link rel="stylesheet" type="text/css" href="css/fontello.css">
     <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript" src="js/script.js" async></script>
+    <script type="text/javascript" src="js/ajax_form.js" async></script>
 </head>
 
 <body>
@@ -222,15 +223,26 @@
     </main>
     <div class="contact-layer" id="contact-layer">
         <!-- <div class="material card typeform-widget" data-url="https://nicolasmarshall.typeform.com/to/p5S0yM" data-text="N-marshall - Contact me !"></div> -->
-        <form action="http://formspree.io/marshall.nicolas@gmail.com" method="POST" class="card contact" id="contact">
-            <label for="email">Your email address</label>
-            <input type="email" name="_replyto" id="email-field" required>
-            <label for="message">Your message</label>
-            <textarea name="message" style="height:19em;" id="message-field" required></textarea>
+        <form action="http://formspree.io/watisdat@mailinator.com" method="POST" class="card contact" id="contact-form">
+            <div class="field-container">
+                <label for="email">Your email address</label>
+                <input type="email" name="_replyto" id="email-field" required>
+                <div class="hint">
+                    <span>Mmm… That email does not look valid</span>
+                </div>
+            </div>
+            <div class="field-container">
+                <label for="message">Your message</label>
+                <textarea name="message" style="height:19em;" id="message-field" required></textarea>
+                <div class="hint">
+                    <span>Oops… Please fill this in</span>
+                </div>
+            </div>
             <input type="hidden" name="_next" value="nmarshall.github.io" />
             <input type="hidden" name="_subject" value="New CV contact" />
             <input type="text" name="_gotcha" style="display:none" />
             <input type="submit" value="Send" class="button material primary" id="submit">
+            <a class="float-right" href="mailto:marshall.nicolas@gmail.com">or use your own mail client</a>
         </form>
         <!-- 
         <div id="wufoo-zwyhq340o6ykhn">
