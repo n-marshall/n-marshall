@@ -4,14 +4,9 @@ var emailField = document.getElementById('email-field');
 var messageField = document.getElementById('message-field');
 var submitButton = document.getElementById('submit');
 
-var message = new Object();
-message.loading = 'Loading...';
-message.success = 'Thank you. I\'ll get back to you as soon as possible';
-message.failure = 'Whoops! There was a problem sending your message.';
 var statusMessage = document.createElement('div');
 statusMessage.className = 'status';
 
-// Set up the AJAX request
 var request = new XMLHttpRequest();
 request.open('POST', 'http://formspree.io/marshall.nicolas@gmail.com', true);
 request.setRequestHeader('accept', 'application/json');
@@ -37,13 +32,15 @@ function submitHandler(e) {
     var formData = new FormData(contactForm);
     request.send(formData);
     request.onreadystatechange = function() {
-        if (request.readyState < 4)
-            statusMessage.innerHTML = message.loading;
-        else if (request.readyState === 4) {
-            if (request.status == 200 && request.status < 300)
-                statusMessage.innerHTML = message.success;
-            else
-                contactForm.insertAdjacentHTML('beforeend', message.failure);
+        if (request.readyState < 4) {
+            statusMessage.innerHTML = 'Loading...';
+        } else if (request.readyState === 4) {
+            if (request.status == 200 && request.status < 300) {
+                statusMessage.innerHTML = 'Thank you ! I\'ll get back to you as soon as possible.';
+                closeContact(true);
+            } else {
+                contactForm.insertAdjacentHTML('beforeend', 'Whoops! There was a problem sending your message.');
+            }
         }
     }
 }
@@ -85,7 +82,7 @@ function updateValidityHint(field) {
     }
 }
 
-function backButtonHandler() {
+function backButtonHandler() { //not working
     if (contactForm.isActive) {
         closeContact();
     } else {
@@ -118,15 +115,18 @@ function setAge() {
     document.getElementById('age').textContent = age;
 }
 
-function toggleContact() {
+function toggleContact(sent) {
     contactForm.isActive = !contactForm.isActive;
-    contactLayer.classList.toggle('dim');
     contactForm.classList.toggle('active');
-    emailField.focus();
+    timeOut = sent ? 3000 : 0;
+    setTimeout(function() {
+        contactLayer.classList.toggle('dim');
+    }, timeOut)
+    contactForm.isActive ? emailField.focus() : document.focus();
 }
 
-function closeContact() {
+function closeContact(sent) {
     if (contactForm.isActive) {
-        toggleContact();
+        toggleContact(sent);
     }
 }

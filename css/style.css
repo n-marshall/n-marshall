@@ -394,6 +394,11 @@ textarea:focus {
     transition: all 0.5s ease 0s;
 }
 
+.contact-layer>span {
+    position:absolute;
+    margin: 48vh calc(52% - 44rem);
+}
+
 .dim {
     background: rgba(0, 0, 0, 0.2);
 }
@@ -416,6 +421,7 @@ textarea:focus {
 .contact.active {
     top: 9vh;
 }
+
 
 /* .field-container .invalid-hint {
     display: none;
@@ -446,13 +452,13 @@ textarea:focus {
 } */
 
 .field-container label {
-    font-size:1.9rem;
+    font-size: 1.9rem;
     color: #274;
 }
 
 .field-container .hint {
     max-height: 0;
-    display:none;
+    display: none;
 }
 
 .field-container .hint:after {
@@ -463,7 +469,7 @@ textarea:focus {
     position: relative;
     display: block;
     max-height: 50rem;
-    padding-bottom:1rem;
+    padding-bottom: 1rem;
 }
 
 .field-container.invalid .hint span {
@@ -477,7 +483,7 @@ textarea:focus {
 
 .field-container.invalid .hint span:after {
     position: absolute;
-    content:'';
+    content: '';
     width: 0;
     height: 0;
     border-left: 5px solid transparent;
