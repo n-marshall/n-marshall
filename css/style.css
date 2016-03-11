@@ -219,6 +219,95 @@ section:not(:first-of-type):not(:nth-of-type(2)) {
 }
 
 
+/*contact*/
+
+input[type='email'],
+textarea {
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid;
+}
+
+input[type='email']:focus,
+textarea:focus {
+    border: none;
+    border-bottom: 1px solid;
+}
+
+.contact-layer {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.5s ease 0s;
+}
+
+.contact-layer.active {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.card {
+    background: #fff;
+    padding: 2rem;
+}
+
+.contact {
+    position: absolute;
+    transition: top 0.5s ease 0s;
+    top: -200vh;
+    box-shadow: 0 8px 48px rgba(0, 0, 0, 0.06), 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.contact-layer.active .contact {
+    top: 9vh;
+}
+
+.field-container label {
+    font-size: 1.9rem;
+    color: #274;
+}
+
+.field-container .hint {
+    max-height: 0;
+    display: none;
+}
+
+.field-container .hint:after {
+    display: none;
+}
+
+.field-container.invalid .hint {
+    position: relative;
+    display: block;
+    max-height: 50rem;
+    padding-bottom: 1rem;
+}
+
+.field-container.invalid .hint span {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 2px;
+    background-color: #444;
+    color: #fff;
+    color: #fff;
+}
+
+.field-container.invalid .hint span:after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #444;
+    top: -5px;
+    left: 10px;
+}
+
+
 /*smartphones*/
 
 @media only screen and (max-width: 800px) {
@@ -228,10 +317,14 @@ section:not(:first-of-type):not(:nth-of-type(2)) {
     .wrapper>.text-container {
         margin: 3rem 4rem 3rem 4rem;
     }
+    .contact {
+        left: 4vw;
+        right: 4vw;
+    }
 }
 
 @media screen and (max-width:600px) {
-    .meta>*:not(: first-child):before {
+    .meta>*:not(:first-child):before {
         content: '|';
         margin: 0 0.5em;
     }
@@ -294,6 +387,11 @@ section:not(:first-of-type):not(:nth-of-type(2)) {
         left: 0;
         right: 0;
         background-color: rgba(44, 51, 64, 0.6);
+    }
+    .contact {
+        margin: 10rem calc(56vw - 44rem);
+        width: 100vw;
+        max-width: 80rem;
     }
 }
 
@@ -365,108 +463,6 @@ print {
 footer {
     background-color: hsl(207, 5%, 90%);
     padding: 1rem 0;
-}
-
-
-/*contact*/
-
-input[type='email'],
-textarea {
-    border-radius: 0;
-    border: none;
-    border-bottom: 1px solid;
-}
-
-input[type='email']:focus,
-textarea:focus {
-    border: none;
-    border-bottom: 1px solid;
-}
-
-.contact-layer {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow: hidden;
-    background-color: rgba(0, 0, 0, 0);
-    transition: background-color 0.5s ease 0s;
-}
-
-/* .contact-layer>span {
-    position: absolute;
-    margin: 48vh calc(52% - 44rem);
-    transition: background-color 0.5s ease 0s;
-}
-
-.contact-layer>span.active {
-    background-color: #fff;
-} */
-
-.contact-layer.active {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-.card {
-    background: #fff;
-    padding: 2rem;
-}
-
-.contact {
-    position: absolute;
-    transition: all 0.5s ease 0s;
-    top: -200vh;
-    width: 100%;
-    max-width: 80rem;
-    margin: 10rem calc(52% - 44rem);
-    box-shadow: 0 8px 48px rgba(0, 0, 0, 0.06), 0 8px 32px rgba(0, 0, 0, 0.12);
-}
-
-.contact-layer.active .contact {
-    top: 9vh;
-}
-
-.field-container label {
-    font-size: 1.9rem;
-    color: #274;
-}
-
-.field-container .hint {
-    max-height: 0;
-    display: none;
-}
-
-.field-container .hint:after {
-    display: none;
-}
-
-.field-container.invalid .hint {
-    position: relative;
-    display: block;
-    max-height: 50rem;
-    padding-bottom: 1rem;
-}
-
-.field-container.invalid .hint span {
-    display: inline-block;
-    padding: 0.4rem 1rem;
-    border-radius: 2px;
-    background-color: #444;
-    color: #fff;
-    color: #fff;
-}
-
-.field-container.invalid .hint span:after {
-    position: absolute;
-    content: '';
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 5px solid #444;
-    top: -5px;
-    left: 10px;
 }
 
 @media screen {
