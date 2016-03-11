@@ -391,15 +391,20 @@ textarea:focus {
     right: 0;
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0);
-    transition: all 0.5s ease 0s;
+    transition: background-color 0.5s ease 0s;
 }
 
-.contact-layer>span {
-    position:absolute;
+/* .contact-layer>span {
+    position: absolute;
     margin: 48vh calc(52% - 44rem);
+    transition: background-color 0.5s ease 0s;
 }
 
-.dim {
+.contact-layer>span.active {
+    background-color: #fff;
+} */
+
+.contact-layer.active {
     background: rgba(0, 0, 0, 0.2);
 }
 
@@ -418,38 +423,9 @@ textarea:focus {
     box-shadow: 0 8px 48px rgba(0, 0, 0, 0.06), 0 8px 32px rgba(0, 0, 0, 0.12);
 }
 
-.contact.active {
+.contact-layer.active .contact {
     top: 9vh;
 }
-
-
-/* .field-container .invalid-hint {
-    display: none;
-    position: relative;
-    max-height: 0;
-    overflow: hidden;
-    color: #fff;
-    background-color: #900;
-    border-radius: 2px;
-}
-
-.field-container.invalid .invalid-hint {
-    padding: 0.4rem 1rem;
-    margin-bottom: 2rem;
-    max-height: 6rem;
-}
-
-.field-container.invalid .invalid-hint::after {
-    position: absolute;
-    content: '';
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 5px solid #900;
-    top: -5px;
-    left: 10px;
-} */
 
 .field-container label {
     font-size: 1.9rem;
@@ -524,11 +500,6 @@ textarea:focus {
         background: hsl(207, 2%, 50%);
         font-size: 2rem;
     }
-    /*
-    .profile-picture {
-        filter: grayscale(50%);
-        -webkit-filter: grayscale(70%);
-    }*/
 }
 
 

@@ -4,8 +4,8 @@ var emailField = document.getElementById('email-field');
 var messageField = document.getElementById('message-field');
 var submitButton = document.getElementById('submit');
 
-var statusMessage = document.createElement('div');
-statusMessage.className = 'status';
+var submitMessage = '';
+var formDefaultInnerHtml = contactForm.innerHTML;
 
 var request = new XMLHttpRequest();
 request.open('POST', 'http://formspree.io/marshall.nicolas@gmail.com', true);
@@ -28,18 +28,17 @@ function addEventListeners() {
 
 function submitHandler(e) {
     e.preventDefault();
-    contactForm.appendChild(statusMessage);
     var formData = new FormData(contactForm);
     request.send(formData);
     request.onreadystatechange = function() {
         if (request.readyState < 4) {
-            statusMessage.innerHTML = 'Loading...';
+            submitMessage = 'Loading...';
         } else if (request.readyState === 4) {
             if (request.status == 200 && request.status < 300) {
-                statusMessage.innerHTML = 'Thank you ! I\'ll get back to you as soon as possible.';
+                submitMessage = 'Thank you ! I\'ll get back to you as soon as possible.';
                 closeContact(true);
             } else {
-                contactForm.insertAdjacentHTML('beforeend', 'Whoops! There was a problem sending your message.');
+                submitMessage = 'Whoops! There was a problem sending your message.';
             }
         }
     }
@@ -83,6 +82,7 @@ function updateValidityHint(field) {
 }
 
 function backButtonHandler() { //not working
+    alert('backutton');
     if (contactForm.isActive) {
         closeContact();
     } else {
@@ -117,12 +117,13 @@ function setAge() {
 
 function toggleContact(sent) {
     contactForm.isActive = !contactForm.isActive;
-    contactForm.classList.toggle('active');
-    timeOut = sent ? 3000 : 0;
+    var submitFeedbackSpan = document.getElementById('submit-feedback');
+    contactForm.innerHTML = sent ? submitMessage : formDefaultInnerHtml;
+    var timeOut = sent ? 3000 : 0;
     setTimeout(function() {
-        contactLayer.classList.toggle('dim');
+        contactLayer.classList.toggle('active');
     }, timeOut)
-    contactForm.isActive ? emailField.focus() : document.focus();
+    emailField.focus();
 }
 
 function closeContact(sent) {
