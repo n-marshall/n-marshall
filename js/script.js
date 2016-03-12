@@ -119,7 +119,7 @@ function toggleContact(sent) {
     contactForm.isActive = !contactForm.isActive;
     var submitFeedbackSpan = document.getElementById('submit-feedback');
     contactForm.innerHTML = sent ? submitMessage : formDefaultInnerHtml;
-    var timeOut = sent ? 3000 : 0;
+    var timeOut = sent ? 2400 : 0;
     setTimeout(function() {
         contactLayer.classList.toggle('active');
     }, timeOut)

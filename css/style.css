@@ -292,7 +292,6 @@ textarea:focus {
     border-radius: 2px;
     background-color: #444;
     color: #fff;
-    color: #fff;
 }
 
 .field-container.invalid .hint span:after {
@@ -318,8 +317,8 @@ textarea:focus {
         margin: 3rem 4rem 3rem 4rem;
     }
     .contact {
-        left: 4vw;
-        right: 4vw;
+        left: calc(10vw - 20px);
+        right: calc(10vw - 20px);
     }
 }
 
@@ -389,7 +388,7 @@ textarea:focus {
         background-color: rgba(44, 51, 64, 0.6);
     }
     .contact {
-        margin: 10rem calc(56vw - 44rem);
+        margin: 10rem calc(49vw - 44rem);
         width: 100vw;
         max-width: 80rem;
     }
