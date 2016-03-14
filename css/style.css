@@ -258,6 +258,7 @@ textarea:focus {
     position: absolute;
     transition: top 0.5s ease 0s;
     top: -200vh;
+    overflow: hidden;
     box-shadow: 0 8px 48px rgba(0, 0, 0, 0.06), 0 8px 32px rgba(0, 0, 0, 0.12);
 }
 
@@ -304,6 +305,34 @@ textarea:focus {
     border-bottom: 5px solid #444;
     top: -5px;
     left: 10px;
+}
+
+.sent {
+    max-height: 4em;
+    margin-top:50%;
+    transition: all 0.5s ease 0s;
+}
+
+.confirmation {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2em;
+    color: #fff;
+    background: #444;
+    opacity: 0;
+    transition: opacity 0.5s ease 0s;
+    font-size: 1.5em;
+    pointer-events: none;
+}
+
+.sent>.confirmation {
+    opacity: 1;
 }
 
 

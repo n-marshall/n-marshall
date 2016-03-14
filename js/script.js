@@ -2,10 +2,7 @@ var contactLayer = document.getElementById('contact-layer');
 var contactForm = document.getElementById('contact-form');
 var emailField = document.getElementById('email-field');
 var messageField = document.getElementById('message-field');
-var submitButton = document.getElementById('submit');
-
-var submitMessage = '';
-var formDefaultInnerHtml = contactForm.innerHTML;
+var submitButton = document.getElementById('submit-button');
 
 var request = new XMLHttpRequest();
 request.open('POST', 'http://formspree.io/marshall.nicolas@gmail.com', true);
@@ -16,6 +13,13 @@ window.onload = function() {
     contactForm.isActive = false;
     addEventListeners();
     addPrintIframe();
+    setContactFormMaxHeight();
+}
+
+function setContactFormMaxHeight() {
+    var h = contactForm.offsetHeight;
+    console.log(h + 'px')
+    contactForm.style.maxHeight = 'calc(' + h + 'px + 5em)'; //todo: update
 }
 
 function addEventListeners() {
@@ -23,26 +27,13 @@ function addEventListeners() {
     document.addEventListener('click', clickHandler);
     document.addEventListener('focusout', focusOutHandler);
     document.addEventListener('backbutton', backButtonHandler);
-    contactForm.addEventListener('submit', submitHandler);
+    /*
+        contactForm.addEventListener('submit', submitHandler);*/
 }
 
-function submitHandler(e) {
+/*function submitHandler(e) {
     e.preventDefault();
-    var formData = new FormData(contactForm);
-    request.send(formData);
-    request.onreadystatechange = function() {
-        if (request.readyState < 4) {
-            submitMessage = 'Loading...';
-        } else if (request.readyState === 4) {
-            if (request.status == 200 && request.status < 300) {
-                submitMessage = 'Thank you ! I\'ll get back to you as soon as possible.';
-                closeContact(true);
-            } else {
-                submitMessage = 'Whoops! There was a problem sending your message.';
-            }
-        }
-    }
-}
+}*/
 
 function keyDownHandler(e) {
     var keyCode = e.which;
@@ -63,6 +54,40 @@ function clickHandler(e) {
     if (contactForm.isActive && e.target === contactLayer) {
         closeContact();
     }
+    if (e.target === submitButton) {
+        e.preventDefault();
+        if (emailField.checkValidity()) {
+            if (messageField.checkValidity()) {
+
+                //send form using xhr
+                var formData = new FormData(contactForm);
+                request.send(formData);
+                var loadingAlert;
+                request.onreadystatechange = function() {
+                    if (request.readyState < 4) {
+                        loadingAlert = setTimeout(function() {
+                            alert('There seems to be a problem sending your message. Sorry about that ! Please try again later.');
+                        }, 15000);
+                    } else if (request.readyState === 4) {
+                        if (request.status == 200 && request.status < 300) {
+                            contactForm.classList.add('sent');
+                            clearTimeout(loadingAlert);
+                            setTimeout(function() {
+                                closeContact();
+                            }, 2400)
+                        } else {
+                            alert('There was a problem sending your message. Sorry about that ! Please try again later.');
+                        }
+                    }
+                }
+            } else {
+                updateValidityHint(messageField);
+            }
+        } else {
+            updateValidityHint(emailField);
+        }
+
+    }
 }
 
 function focusOutHandler(e) {
@@ -82,7 +107,7 @@ function updateValidityHint(field) {
 }
 
 function backButtonHandler() { //not working
-    alert('backutton');
+    alert('backbutton');
     if (contactForm.isActive) {
         closeContact();
     } else {
@@ -115,19 +140,14 @@ function setAge() {
     document.getElementById('age').textContent = age;
 }
 
-function toggleContact(sent) {
+function toggleContact() {
     contactForm.isActive = !contactForm.isActive;
-    var submitFeedbackSpan = document.getElementById('submit-feedback');
-    contactForm.innerHTML = sent ? submitMessage : formDefaultInnerHtml;
-    var timeOut = sent ? 2400 : 0;
-    setTimeout(function() {
-        contactLayer.classList.toggle('active');
-    }, timeOut)
+    contactLayer.classList.toggle('active');
     emailField.focus();
 }
 
-function closeContact(sent) {
+function closeContact() {
     if (contactForm.isActive) {
-        toggleContact(sent);
+        toggleContact();
     }
 }
