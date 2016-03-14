@@ -62,19 +62,22 @@ function clickHandler(e) {
                 //send form using xhr
                 var formData = new FormData(contactForm);
                 request.send(formData);
-                var loadingAlert;
-                request.onreadystatechange = function() {
+                var loadingAlert = setTimeout(function() {
                     if (request.readyState < 4) {
-                        loadingAlert = setTimeout(function() {
-                            alert('There seems to be a problem sending your message. Sorry about that ! Please try again later.');
-                        }, 15000);
-                    } else if (request.readyState === 4) {
+                        alert('There seems to be a problem sending your message. Sorry about that ! Please try again later.');
+                    }
+                }, 15000);;
+                request.onreadystatechange = function() {
+                    if (request.readyState === 4) {
                         if (request.status == 200 && request.status < 300) {
                             contactForm.classList.add('sent');
                             clearTimeout(loadingAlert);
                             setTimeout(function() {
                                 closeContact();
-                            }, 2400)
+                                setTimeout(function(){
+                                    contactForm.classList.remove('sent');
+                                }, 600);
+                            }, 2400);
                         } else {
                             alert('There was a problem sending your message. Sorry about that ! Please try again later.');
                         }
