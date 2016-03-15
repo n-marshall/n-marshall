@@ -118,8 +118,8 @@ function backButtonHandler() { //not working
     }
 }
 
-function triggerPrint(elementId) {
-    var getMyFrame = document.getElementById(elementId);
+function triggerPrint() {
+    var getMyFrame = document.getElementById('iFramePdf');
     getMyFrame.focus();
     getMyFrame.contentWindow.print();
 }

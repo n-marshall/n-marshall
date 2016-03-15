@@ -74,6 +74,14 @@ h5 {
 
 /*sections*/
 
+main>.text-container {
+    margin: 3rem 10rem 3rem 8rem;
+}
+
+section.container>.foreground-container>.text-container {
+    padding: 4rem 10rem 4rem 8rem;
+}
+
 section:not(:first-of-type):not(:nth-of-type(2)) {
     border-top: 1px solid hsla(207, 18%, 42%, 0.3);
 }
@@ -91,6 +99,7 @@ section:not(:first-of-type):not(:nth-of-type(2)) {
     .container,
     .text-container {
         max-width: 100rem;
+        padding: 0;
     }
 }
 
@@ -177,16 +186,27 @@ section:not(:first-of-type):not(:nth-of-type(2)) {
 
 /*header*/
 
+#header {
+    color: white;
+    background: url('../img/forest.jpg') top center no-repeat;
+    background-size: cover;
+}
+
+.foreground-container {
+    background: hsla(192, 60%, 20%, 0.5);
+    box-shadow: inset -10rem 0 30rem 3rem hsla(200, 80%, 10%, 0.8)
+}
+
 .profile-picture {
     height: 60vw;
     max-height: 15rem;
     width: 60vw;
     max-width: 15rem;
     background-color: white;
-    background: url(../img/profile.jpg) center top no-repeat;
-    background-size: cover;
+    background: url(../img/profile.jpg) 60% top no-repeat;
+    background-size: 120%;
     border-radius: 50%;
-    margin: 2rem auto;
+    margin: 0 auto;
 }
 
 
@@ -243,10 +263,12 @@ textarea:focus {
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0);
     transition: background-color 0.5s ease 0s;
+    pointer-events: none;
 }
 
 .contact-layer.active {
     background: rgba(0, 0, 0, 0.2);
+    pointer-events: auto;
 }
 
 .card {
@@ -309,7 +331,7 @@ textarea:focus {
 
 .sent {
     max-height: 4em;
-    margin-top:50%;
+    margin-top: 50%;
     transition: all 0.5s ease 0s;
 }
 
@@ -336,33 +358,53 @@ textarea:focus {
 }
 
 
-/*smartphones*/
+/*footer*/
 
-@media only screen and (max-width: 800px) {
-    .mobile {
-        display: block;
-    }
-    .wrapper>.text-container {
-        margin: 3rem 4rem 3rem 4rem;
-    }
-    .contact {
-        left: calc(10vw - 20px);
-        right: calc(10vw - 20px);
-    }
+footer {
+    background-color: hsl(207, 5%, 90%);
+    padding: 1rem 0;
 }
 
+
+/*breakpoint 600px*/
+
 @media screen and (max-width:600px) {
-    .meta>*:not(:first-child):before {
+    .meta>*:not(: first-child):before {
         content: '|';
         margin: 0 0.5em;
     }
 }
 
+@media (min-width: 601px),
+print {
+    .text-container {
+        text-align: justify;
+    }
+    .experience-text>div:not(.meta) {
+        margin-left: 19.8rem;
+    }
+    .meta {
+        position: absolute;
+        order: -1;
+        display: flex;
+        flex-flow: column nowrap;
+        margin-top: 0.2rem;
+    }
+    .row-head {
+        min-width: 22rem;
+    }
+    .flex-row>.row-text {
+        width: calc(100% - 22rem) !important;
+        /*! to beat :not(#education) specificity*/
+    }
+}
 
-/*smartphones and desktop*/
+
+/*breakpoint 720px*/
 
 @media (max-width: 720px) {
     .header-flex>div {
+        margin-bottom: 4rem;
         text-align: center;
     }
     .social {
@@ -383,8 +425,39 @@ textarea:focus {
     }
 }
 
+@media (min-width: 721px),
+print {
+    .header-text {
+        text-align: left;
+    }
+    .header-flex {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+    }
+    #header {
+        background-color: rgba(0, 0, 0, 0.75);
+    }
+    .profile-picture {
+        margin-right: 3rem;
+    }
+}
 
-/*desktop*/
+
+/*breakpoint 800px*/
+
+@media only screen and (max-width: 800px) {
+    .mobile {
+        display: block;
+    }
+    main>.text-container {
+        margin: 3rem 4rem 3rem 4rem;
+    }
+    .contact {
+        left: calc(10vw - 20px);
+        right: calc(10vw - 20px);
+    }
+}
 
 @media only screen and (min-width: 801px) {
     html {
@@ -407,7 +480,7 @@ textarea:focus {
         background: url(../img/forest.jpg) top center no-repeat;
         background-size: cover;
     }
-    .body-bg::after {
+    .body-bg:after {
         position: absolute;
         content: '';
         top: 0;
@@ -423,75 +496,7 @@ textarea:focus {
     }
 }
 
-@media (min-width: 601px),
-print {
-    .wrapper>.text-container {
-        margin: 3rem 10rem 3rem 8rem;
-    }
-    section.container>.text-container {
-        padding: 2rem 8rem 2rem 6rem;
-    }
-    .text-container {
-        text-align: justify;
-    }
-    .experience-text {
-        position: relative;
-    }
-    .experience-text>div:not(.meta) {
-        margin-left: 19.8rem;
-    }
-    .meta {
-        position: absolute;
-        order: -1;
-        display: flex;
-        flex-flow: column nowrap;
-        margin-top: 0.2rem;
-    }
-    .profile-picture {
-        margin-right: 3rem;
-    }
-    .row-head {
-        min-width: 22rem;
-    }
-    .flex-row>.row-text {
-        width: calc(100% - 22rem) !important;
-        /*! to beat :not(#education) specificity*/
-    }
-}
-
-@media (min-width: 721px),
-print {
-    .header-text {
-        text-align: left;
-    }
-    .header-flex {
-        display: flex;
-        flex-flow: row nowrap;
-        align-items: center;
-    }
-    #header {
-        position: relative;
-        color: white;
-        background-color: rgba(0, 0, 0, 0.75);
-        border-bottom: 4px solid rgba(255, 255, 255, 0.5);
-    }
-    #header:first-child::before {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: url(../img/forest.jpg) top center no-repeat;
-        background-size: cover;
-    }
-}
-
-footer {
-    background-color: hsl(207, 5%, 90%);
-    padding: 1rem 0;
-}
+/*screen vs print*/
 
 @media screen {
     a {
@@ -525,9 +530,6 @@ footer {
         font-size: 2rem;
     }
 }
-
-
-/*print specific styles*/
 
 @page {
     margin: 0;
