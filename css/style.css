@@ -126,8 +126,6 @@ section:not(:first-of-type):not(:nth-of-type(2)) {
     background-color: white;
     background: url(../img/profile.jpg) 60% top no-repeat;
     background-size: 120%;
-    background: url(../img/wow.jpg) top center no-repeat;
-    background-size: cover;
     border-radius: 50%;
     margin: 0 auto;
 }
@@ -323,7 +321,7 @@ textarea {
 input[type='email']:focus,
 textarea:focus {
     border: none;
-    border-bottom: 1px solid;
+    border-bottom: 2px solid hsl(200, 50%, 30%);
 }
 
 .contact-layer {
@@ -435,9 +433,8 @@ textarea:focus {
 footer {
     background: url(../img/forest.jpg) center 80% no-repeat;
     background-size: cover;
-    padding: 1rem 0;
+    height: 1.6rem;
     position: relative;
-    opacity: 0.5
 }
 
 footer:after {
@@ -454,7 +451,7 @@ footer:after {
 /*breakpoint 600px*/
 
 @media screen and (max-width:600px) {
-    .meta>*:not(: first-child):before {
+    .meta>*:not(:first-child):before {
         content: '|';
         margin: 0 0.5em;
     }
@@ -487,7 +484,7 @@ print {
 
 /*breakpoint 720px*/
 
-@media (max-width: 720px) {
+@media only screen and (max-width: 720px) {
     .header-flex>div {
         margin-bottom: 4rem;
         text-align: center;
@@ -623,9 +620,8 @@ print {
     }
     html,
     body,
-    .wrapper {
+    main {
         width: 100%;
-        height: 100%;
         margin: 0;
         padding: 0;
     }
@@ -636,9 +632,7 @@ print {
         display: none;
     }
     .footer {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
+        margin-top: 7.66rem;
     }
     .container {
         max-width: none;
