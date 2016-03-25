@@ -12,6 +12,8 @@ request.setRequestHeader('accept', 'application/json');
 window.onload = function() {
     setAge();
     contactForm.isActive = false;
+    document.isMobile = /Mobi/.test(navigator.userAgent);
+    alert(document.isMobile);
     addEventListeners();
     addPrintIframe();
     setContactFormMaxHeight();

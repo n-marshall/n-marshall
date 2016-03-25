@@ -283,19 +283,31 @@ section:not(:first-of-type):not(:nth-of-type(2)) {
     font-size: 2rem;
 }
 
-.action.primary {
+.primary {
     background: hsl(200, 30%, 30%);
     color: #fff;
 }
 
-.action.primary:hover {
+.primary:hover {
     background: hsl(200, 40%, 20%);
+    color: #fff;
 }
 
-.action.secondary:hover {
+.secondary:hover {
     color: hsl(200, 30%, 20%);
     text-shadow: 0 0 1px hsla(200, 30%, 30%, 0.2);
     text-decoration: underline;
+}
+
+input[type='submit'] {
+    font-size: 1.4rem;
+    font-weight: normal;
+    background: hsl(200, 30%, 30%);
+    border: none;
+}
+
+input[type='submit']:hover {
+    background: hsl(200, 40%, 20%);
 }
 
 
@@ -488,7 +500,7 @@ print {
         font-size: 2rem;
     }
     .social-item {
-        flex: 0 1 8%;
+        flex: 0 1 12%;
     }
     .social-item i {
         padding-bottom: 0.5em;
