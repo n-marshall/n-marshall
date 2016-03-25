@@ -42,187 +42,196 @@
 </head>
 
 <body>
-    <div class="body-bg"></div>
-    <div class="actions mobile desktop">
-        <a class="button action material primary" onclick="toggleContact();" style="margin-bottom: 3rem">Contact me !</i></a>
-        <a class="button action material secondary" onclick='triggerPrint();'><i class="icon-print"></i></a>
-        <a class="button action material secondary" href="pdf/Nicolas-Marshall-Resume.pdf" download="Nicolas-Marshall-Resume.pdf"><i class="icon-pdf"></i></a>
+    <div id="body-container">
+        <div id="body-background"></div>
+        <div id="body-foreground">
+            <div id="actions-container">
+                <div id="actions" class="top flex-row noprint">
+                    <a class="action primary material" onclick="toggleContact();"><i class="icon-send"></i><span class="action-text">Contact me !</span></a>
+                    <a class="action secondary" onclick='triggerPrint();'><i class="icon-print"></i><span class="action-text">Print</span></a>
+                    <a class="action secondary" href="pdf/Nicolas-Marshall-Resume.pdf" download="Nicolas-Marshall-Resume.pdf"><i class="icon-pdf"></i><span class="action-text">Save as PDF</span></a>
+                </div>
+            </div>
+            <main class="wrapper container material">
+                <section class="container" id="header">
+                    <div class="foreground-container">
+                        <div class="text-container">
+                            <div class="header-flex">
+                                <div class="profile-picture">
+                                </div>
+                                <div class="header-text" style="flex-grow: 5">
+                                    <h5>Nicolas</h5>
+                                    <h5>Marshall</h5>
+                                    <div>Back-end and web developer</div>
+                                    <div><span id="age">10</span>, from France</div>
+                                </div>
+                                <div class="social">
+                                    <div class="social-item">
+                                        <i class="icon-mail"></i>
+                                        <div class="social-text float-right">marshall.nicolas@gmail.com</div>
+                                    </div>
+                                    <div class="social-item">
+                                        <i class="icon-phone"></i>
+                                        <div class="social-text float-right" style="font-family: tahoma">+33 6 18 83 60 39</div>
+                                    </div>
+                                    <div class="social-item">
+                                        <i class="icon-stackoverflow"></i>
+                                        <div class="social-text float-right">/n-marshall</div>
+                                    </div>
+                                    <div class="social-item">
+                                        <i class="icon-github"></i>
+                                        <div class="social-text float-right">/n-marshall</div>
+                                    </div>
+                                    <div class="social-item">
+                                        <i class="icon-linkedin"></i>
+                                        <div class="social-text float-right">/marshallnicolas</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="text-container" id="resume">
+                    <div>
+                        <div>Fond of the open-source based web, I'm interested in crafting innovative products with care for the user experience. Obsessed with code performance, I love coding reusable and maintainable and keeping updated with the latest languages and tools.
+                        </div>
+                    </div>
+                </section>
+                <section class="text-container" id="education">
+                    <div class="flex-row">
+                        <h6 class="row-head">Education</h6>
+                        <div class="row-text flex-column">
+                            <div class="flex-row experience-title">
+                                <div class="position">Master's degree in Engineering</div>
+                                <div class="company"><a href="http://www.ec-lyon.fr/en">Ecole Centrale de Lyon</a></div>
+                            </div>
+                            <div class="dates">2011-2015</div>
+                            <div class="experience-description">Major in computer science</div>
+                            <div class="experience-description mini">Enterprise IT, Databases, Data mining, Networks, OOP, Websites, Web services, H/C Interfaces, Telecommunications, Hardware architecture, Multi-agent AIs, Cloud computing, High availability</div>
+                        </div>
+                    </div>
+                </section>
+                <section class="text-container" id="experience">
+                    <h6>Experience</h6>
+                    <div class="experience-item flex-column">
+                        <div class="experience-text flex-column">
+                            <div class="flex-row experience-title">
+                                <div class="position">Back-end developer</div>
+                                <div class="company"><a href="https://www.justwatch.com/us">Justwatch</a></div>
+                            </div>
+                            <div class="meta">
+                                <span class="dates">Apr'15-Sep'15</span>
+                                <span class="duration">6 Months</span>
+                                <span class="location">Berlin</span>
+                            </div>
+                            <div class="experience-description">Legal streaming search engine</div>
+                            <div class="experience-description mini">Added numerous scraper plugins for streaming offers and released Justwatch in two new countries<br/>Added an "actors and directors" feature, along with needed API routes and materialized views</div>
+                            <div class="tools">Go, PostgreSQL, ElasticSearch</div>
+                        </div>
+                    </div>
+                    <div class="experience-item flex-column">
+                        <div class="experience-text flex-column">
+                            <div class="flex-row experience-title">
+                                <div class="position">Front-end developer</div>
+                                <div class="company"><a href="http://mdpqualite.fr/">MDP Qualité</a></div>
+                            </div>
+                            <div class="meta">
+                                <span class="dates">May'14-Aug'14</span>
+                                <span class="duration">3 Months</span>
+                                <span class="location">Toulouse</span>
+                            </div>
+                            <div class="experience-description">Development of an ERP for land surveyor firms of all sizes</div>
+                            <div class="experience-description mini">Helped revamp all UI screens for a flatter look and a clearer user experience</div>
+                            <div class="tools">Filemaker, SQL</div>
+                        </div>
+                    </div>
+                    <div class="experience-item flex-column">
+                        <div class="experience-text flex-column">
+                            <div class="flex-row experience-title">
+                                <div class="position">Assistant Foreman</div>
+                                <div class="company"><a href="http://www.colasgeniecivil.fr/">Colas Génie Civil</a></div>
+                            </div>
+                            <div class="meta">
+                                <span class="dates">May'13-Aug'13</span>
+                                <span class="duration">4 Months</span>
+                                <span class="location">Avignon</span>
+                            </div>
+                            <div class="experience-description">Civil engineering - Railway tunnel construction site</div>
+                        </div>
+                    </div>
+                </section>
+                <section class="text-container" id="skills">
+                    <h6>Skills</h6>
+                    <div class="flex-row">
+                        <div class="row-head mini">Programming</div>
+                        <div class="row-text flex-row">
+                            <div class="skill skill-4">C++</div>
+                            <div class="skill skill-1">Go</div>
+                            <div class="skill skill-4">PHP</div>
+                            <div class="skill skill-3">Matlab</div>
+                            <div class="skill skill-5">Python</div>
+                        </div>
+                    </div>
+                    <div class="flex-row">
+                        <div class="row-head mini">Databases</div>
+                        <div class="row-text flex-row">
+                            <div class="skill skill-1">PostgreSQL</div>
+                            <div class="skill skill-3">ElasticSearch</div>
+                            <div class="skill skill-3">MySQL</div>
+                            <div class="skill skill-5">Neo4j</div>
+                        </div>
+                    </div>
+                    <div class="flex-row">
+                        <div class="row-head mini">Front-end</div>
+                        <div class="row-text flex-row">
+                            <div class="skill skill-1">HTML/CSS</div>
+                            <div class="skill skill-2">Javascript</div>
+                            <div class="skill skill-5">React</div>
+                            <div class="skill skill-4">Mithril</div>
+                            <div class="skill skill-4">Vue</div>
+                        </div>
+                    </div>
+                    <div class="flex-row">
+                        <div class="row-head mini">Linux</div>
+                        <div class="row-text flex-row">
+                            <div class="skill skill-3">Basic commands</div>
+                            <div class="skill skill-1">Git</div>
+                            <div class="skill skill-4">Docker</div>
+                            <div class="skill skill-5">Vagrant</div>
+                        </div>
+                    </div>
+                    <div class="flex-row">
+                        <div class="row-head mini">Languages</div>
+                        <div class="row-text flex-row">
+                            <div class="skill skill-2">English</div>
+                            <div class="skill skill-1">French</div>
+                            <div class="skill skill-3">German</div>
+                            <div class="skill skill-5">Italian</div>
+                        </div>
+                    </div>
+                </section>
+                <section class="text-container" id="interests">
+                    <h6>Interests</h6>
+                    <div class="flex-row">
+                        <div class="row-head mini">Things I love</div>
+                        <div class="row-text mini">Rock, jazz, live music, backpacking abroad, playing the piano or in a brass band, swimming, architecture, science and tech</div>
+                    </div>
+                    <div class="flex-row">
+                        <div class="row-head mini">Volunteering</div>
+                        <div class="row-text mini">Building renovation / Organization of activities for children at an asylumseeker center (<i>Service Civil International</i>, Leipzig, 2011)</div>
+                    </div>
+                    <div class="flex-row">
+                        <div class="row-head mini">Open source</div>
+                        <div class="row-text mini">Face Recognition (school project, Matlab) </div>
+                    </div>
+                </section>
+                <footer class="footer">
+                    <section class="container">
+                    </section>
+                </footer>
+            </main>
+        </div>
     </div>
-    <main class="wrapper container material">
-        <section class="container" id="header">
-            <div class="foreground-container">
-                <div class="text-container">
-                    <div class="header-flex">
-                        <div class="profile-picture">
-                        </div>
-                        <div class="header-text" style="flex-grow: 5">
-                            <h5>Nicolas</h5>
-                            <h5>Marshall</h5>
-                            <div>Back-end and web developer</div>
-                            <div><span id="age">10</span>, from France</div>
-                        </div>
-                        <div class="social">
-                            <div class="social-item">
-                                <i class="icon-mail"></i>
-                                <div class="social-text float-right">marshall.nicolas@gmail.com</div>
-                            </div>
-                            <div class="social-item">
-                                <i class="icon-phone"></i>
-                                <div class="social-text float-right" style="font-family: tahoma">+33 6 18 83 60 39</div>
-                            </div>
-                            <div class="social-item">
-                                <i class="icon-stackoverflow"></i>
-                                <div class="social-text float-right">/n-marshall</div>
-                            </div>
-                            <div class="social-item">
-                                <i class="icon-github"></i>
-                                <div class="social-text float-right">/n-marshall</div>
-                            </div>
-                            <div class="social-item">
-                                <i class="icon-linkedin"></i>
-                                <div class="social-text float-right">/marshallnicolas</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="text-container" id="resume">
-            <div>
-                <div>Fond of the open-source based web, I'm interested in crafting innovative products with care for the user experience. Obsessed with code performance, I love coding reusable and maintainable and keeping updated with the latest languages and tools.
-                </div>
-            </div>
-        </section>
-        <section class="text-container" id="education">
-            <div class="flex-row">
-                <h6 class="row-head">Education</h6>
-                <div class="row-text flex-column">
-                    <div class="flex-row experience-title">
-                        <div class="position">Master's degree in Engineering</div>
-                        <div class="company"><a href="http://www.ec-lyon.fr/en">Ecole Centrale de Lyon</a></div>
-                    </div>
-                    <div class="dates">2011-2015</div>
-                    <div class="experience-description">Major in computer science</div>
-                    <div class="experience-description" style="font-size:70%;">Enterprise IT, Databases, Data mining, Networks, OOP, Websites, Web services, H/C Interfaces, Telecommunications, Hardware architecture, Multi-agent AIs, Cloud computing, High availability</div>
-                </div>
-        </section>
-        <section class="text-container" id="experience">
-            <h6>Experience</h6>
-            <div class="experience-item flex-column">
-                <div class="experience-text flex-column">
-                    <div class="flex-row experience-title">
-                        <div class="position">Backend developer</div>
-                        <div class="company"><a href="https://www.justwatch.com/us">Justwatch</a></div>
-                    </div>
-                    <div class="meta">
-                        <span class="dates">Apr'15-Sep'15</span>
-                        <span class="duration">6 Months</span>
-                        <span class="location">Berlin</span>
-                    </div>
-                    <div class="experience-description">Scrapers and APIs development</div>
-                    <div class="tools">Go, PostgreSQL, ElasticSearch</div>
-                </div>
-            </div>
-            <div class="experience-item flex-column">
-                <div class="experience-text flex-column">
-                    <div class="flex-row experience-title">
-                        <div class="position">Front-end developer</div>
-                        <div class="company"><a href="http://mdpqualite.fr/">MDP Qualité</a></div>
-                    </div>
-                    <div class="meta">
-                        <span class="dates">May'14-Aug'14</span>
-                        <span class="duration">3 Months</span>
-                        <span class="location">Toulouse</span>
-                    </div>
-                    <div class="experience-description">Development of an ERP for land surveyor firms of all sizes</div>
-                    <div class="tools">Filemaker, SQL</div>
-                </div>
-            </div>
-            <div class="experience-item flex-column">
-                <div class="experience-text flex-column">
-                    <div class="flex-row experience-title">
-                        <div class="position">Assistant Foreman</div>
-                        <div class="company"><a href="http://www.colasgeniecivil.fr/">Colas Génie Civil</a></div>
-                    </div>
-                    <div class="meta">
-                        <span class="dates">May'13-Aug'13</span>
-                        <span class="duration">4 Months</span>
-                        <span class="location">Avignon</span>
-                    </div>
-                    <div class="experience-description">Civil engineering - Railway tunnel construction site</div>
-                </div>
-            </div>
-        </section>
-        <section class="text-container" id="skills">
-            <h6>Skills</h6>
-            <div class="flex-row">
-                <div class="row-head mini">Programming</div>
-                <div class="row-text flex-row">
-                    <div class="skill skill-4">C++</div>
-                    <div class="skill skill-1">Go</div>
-                    <div class="skill skill-4">PHP</div>
-                    <div class="skill skill-3">Matlab</div>
-                    <div class="skill skill-5">Python</div>
-                </div>
-            </div>
-            <div class="flex-row">
-                <div class="row-head mini">Databases</div>
-                <div class="row-text flex-row">
-                    <div class="skill skill-1">PostgreSQL</div>
-                    <div class="skill skill-3">ElasticSearch</div>
-                    <div class="skill skill-3">MySQL</div>
-                    <div class="skill skill-5">Neo4j</div>
-                </div>
-            </div>
-            <div class="flex-row">
-                <div class="row-head mini">Front-end</div>
-                <div class="row-text flex-row">
-                    <div class="skill skill-1">HTML/CSS</div>
-                    <div class="skill skill-2">Javascript</div>
-                    <div class="skill skill-5">React</div>
-                    <div class="skill skill-4">Mithril</div>
-                    <div class="skill skill-4">Vue</div>
-                </div>
-            </div>
-            <div class="flex-row">
-                <div class="row-head mini">Linux</div>
-                <div class="row-text flex-row">
-                    <div class="skill skill-3">Basic commands</div>
-                    <div class="skill skill-1">Git</div>
-                    <div class="skill skill-4">Docker</div>
-                    <div class="skill skill-5">Vagrant</div>
-                </div>
-            </div>
-            <div class="flex-row">
-                <div class="row-head mini">Languages</div>
-                <div class="row-text flex-row">
-                    <div class="skill skill-2">English</div>
-                    <div class="skill skill-1">French</div>
-                    <div class="skill skill-3">German</div>
-                    <div class="skill skill-5">Italian</div>
-                </div>
-            </div>
-        </section>
-        <section class="text-container" id="interests">
-            <h6>Interests</h6>
-            <div class="flex-row">
-                <div class="row-head mini">Open source</div>
-                <div class="row-text">Face Recognition: eigenfaces and PCA (school project, Matlab) </div>
-            </div>
-            <div class="flex-row">
-                <div class="row-head mini">Volunteering</div>
-                <div class="row-text">Building renovation / Organization of activities for children at an asylumseeker center (<i>Service Civil International</i>, Leipzig, 2011)</div>
-            </div>
-            <div class="flex-row">
-                <div class="row-head mini">Things I love</div>
-                <div class="row-text">Rock, jazz, live music, backpacking abroad, playing the piano or in a brass band, swimming, architecture, science and tech</div>
-            </div>
-        </section>
-        <footer class="footer">
-            <section class="container">
-            </section>
-        </footer>
-    </main>
     <div class="contact-layer" id="contact-layer">
         <form class="card contact" id="contact-form">
             <div class="field-container">
@@ -241,7 +250,7 @@
             </div>
             <input type="hidden" name="_subject" value="New CV contact" />
             <input type="text" name="_gotcha" style="display:none" />
-            <input type="submit" value="Send" class="button material primary" id="submit-button">
+            <input type="submit" value="Send" class="action material primary" id="submit-button">
             <a class="float-right" href="mailto:marshall.nicolas@gmail.com">or use your own mail client</a>
             <div class="confirmation">Thank you ! I'll get back to you as soon as possible.</div>
         </form>

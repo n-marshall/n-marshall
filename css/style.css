@@ -4,9 +4,10 @@ body {
     -webkit-print-color-adjust: exact;
 }
 
-input[type="submit"] {
+
+/* input[type="submit"] {
     border: none;
-}
+} */
 
 html {
     font-size: 8px;
@@ -38,8 +39,11 @@ a {
 
 .row-head.mini {
     text-transform: uppercase;
-    font-size: 85%;
     font-weight: bold;
+}
+
+.mini {
+    font-size: 85%;
 }
 
 section:not(#education) .row-text {
@@ -65,16 +69,10 @@ h5 {
     line-height: 1.2em;
 }
 
-.mobile,
-.desktop,
-.print {
-    display: none;
-}
-
 
 /*sections*/
 
-main>.text-container {
+.wrapper>.text-container {
     margin: 3rem 10rem 3rem 8rem;
 }
 
@@ -95,16 +93,43 @@ section:not(:first-of-type):not(:nth-of-type(2)) {
     padding: 0;
 }
 
-@media screen {
-    .container,
-    .text-container {
-        max-width: 100rem;
-        padding: 0;
-    }
+.container,
+.text-container {
+    max-width: 100rem;
+    padding: 0;
 }
 
 .wrapper>.text-container:not(:nth-of-type(2)) {
     padding-top: 2rem;
+}
+
+
+/*header*/
+
+#header {
+    color: white;
+    background: url(../img/forest.jpg) top center no-repeat;
+    background-size: cover;
+}
+
+.foreground-container {
+    background: hsla(192, 60%, 20%, 0.5);
+    /* box-shadow: inset -10rem 0 30rem 3rem hsla(200, 80%, 10%, 0.8) */
+    background: radial-gradient(ellipse farthest-side at 40% 50%, hsla(192, 60%, 20%, 0.5), hsla(192, 50%, 16%, 0.8));
+}
+
+.profile-picture {
+    height: 60vw;
+    max-height: 15rem;
+    width: 60vw;
+    max-width: 15rem;
+    background-color: white;
+    background: url(../img/profile.jpg) 60% top no-repeat;
+    background-size: 120%;
+    background: url(../img/wow.jpg) top center no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    margin: 0 auto;
 }
 
 
@@ -133,6 +158,10 @@ section:not(:first-of-type):not(:nth-of-type(2)) {
     opacity: 0.7;
 }
 
+.experience-description.mini {
+    font-size: 70%;
+}
+
 .dates {
     font-size: 85%;
 }
@@ -149,6 +178,10 @@ section:not(:first-of-type):not(:nth-of-type(2)) {
 
 
 /*skills*/
+
+#skills h6 {
+    margin-bottom: 1.2rem;
+}
 
 .skill {
     margin-right: 0.5rem;
@@ -184,32 +217,6 @@ section:not(:first-of-type):not(:nth-of-type(2)) {
 }
 
 
-/*header*/
-
-#header {
-    color: white;
-    background: url('../img/forest.jpg') top center no-repeat;
-    background-size: cover;
-}
-
-.foreground-container {
-    background: hsla(192, 60%, 20%, 0.5);
-    box-shadow: inset -10rem 0 30rem 3rem hsla(200, 80%, 10%, 0.8)
-}
-
-.profile-picture {
-    height: 60vw;
-    max-height: 15rem;
-    width: 60vw;
-    max-width: 15rem;
-    background-color: white;
-    background: url(../img/profile.jpg) 60% top no-repeat;
-    background-size: 120%;
-    border-radius: 50%;
-    margin: 0 auto;
-}
-
-
 /* #experience reponsive layout */
 
 .experience-item {
@@ -236,6 +243,59 @@ section:not(:first-of-type):not(:nth-of-type(2)) {
     display: flex;
     flex-flow: row nowrap;
     align-items: baseline;
+}
+
+
+/*actions*/
+
+#actions {
+    position: absolute;
+    right: 0;
+    width: calc(56% - 57.5rem);
+    min-width: 8rem;
+    margin: 0;
+    flex-flow: column;
+    transition: padding-top 0.2s ease-out 0s;
+}
+
+.action {
+    z-index: 1;
+    max-width: 6rem;
+    border-radius: 50%;
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: hsl(200, 30%, 35%);
+    cursor: pointer;
+}
+
+.action-text {
+    display: none;
+}
+
+.action i {
+    font-size: 1.8rem;
+    margin-right: 0.5em;
+}
+
+.action.secondary i {
+    font-size: 2rem;
+}
+
+.action.primary {
+    background: hsl(200, 30%, 30%);
+    color: #fff;
+}
+
+.action.primary:hover {
+    background: hsl(200, 40%, 20%);
+}
+
+.action.secondary:hover {
+    color: hsl(200, 30%, 20%);
+    text-shadow: 0 0 1px hsla(200, 30%, 30%, 0.2);
+    text-decoration: underline;
 }
 
 
@@ -290,7 +350,7 @@ textarea:focus {
 
 .field-container label {
     font-size: 1.9rem;
-    color: #274;
+    color: hsl(200, 30%, 30%);
 }
 
 .field-container .hint {
@@ -361,8 +421,21 @@ textarea:focus {
 /*footer*/
 
 footer {
-    background-color: hsl(207, 5%, 90%);
+    background: url(../img/forest.jpg) center 80% no-repeat;
+    background-size: cover;
     padding: 1rem 0;
+    position: relative;
+    opacity: 0.5
+}
+
+footer:after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    content: '';
+    background: hsla(192, 60%, 20%, 0.5);
 }
 
 
@@ -412,13 +485,14 @@ print {
         flex-flow: row nowrap;
         justify-content: center;
         margin: 2rem 0 4rem 0;
+        font-size: 2rem;
     }
     .social-item {
-        flex: 0 1 6%;
+        flex: 0 1 8%;
     }
     .social-item i {
         padding-bottom: 0.5em;
-        border-bottom: 1px solid hsla(207, 18%, 42%, 0.8);
+        border-bottom: 1px solid hsla(0, 0%, 100%, 0.5);
     }
     .social .social-text {
         display: none;
@@ -435,11 +509,11 @@ print {
         flex-flow: row nowrap;
         align-items: center;
     }
-    #header {
-        background-color: rgba(0, 0, 0, 0.75);
-    }
     .profile-picture {
         margin-right: 3rem;
+    }
+    .social-item i {
+        margin-right: 0.5em;
     }
 }
 
@@ -447,9 +521,6 @@ print {
 /*breakpoint 800px*/
 
 @media only screen and (max-width: 800px) {
-    .mobile {
-        display: block;
-    }
     main>.text-container {
         margin: 3rem 4rem 3rem 4rem;
     }
@@ -457,44 +528,65 @@ print {
         left: calc(10vw - 20px);
         right: calc(10vw - 20px);
     }
+    #actions-container {
+        position: relative;
+    }
+    #actions {
+        margin-top: 47rem;
+    }
 }
 
 @media only screen and (min-width: 801px) {
-    html {
-        background: linear-gradient(to right bottom, white 0%, #eaebed 100%);
-        background: -webkit-radial-gradient(0% 0%, ellipse cover, hsl(10, 3%, 95%) 0%, hsl(10, 3%, 85%) 100%);
-        background: #ECEEED;
+    #body-container {
+        position: relative;
+        perspective: 1px;
     }
-    .wrapper {
-        margin: 10rem calc(44% - 44rem);
-        box-shadow: 2rem 2rem 6rem 0.5rem rgba(0, 0, 0, 0.2);
-    }
-    .desktop {
-        display: block;
-    }
-    .body-bg {
+    #body-background {
         position: absolute;
-        top: 0;
-        height: 420px;
-        width: 100%;
-        background: url(../img/forest.jpg) top center no-repeat;
-        background-size: cover;
-    }
-    .body-bg:after {
-        position: absolute;
-        content: '';
         top: 0;
         bottom: 0;
         left: 0;
         right: 0;
-        background-color: rgba(44, 51, 64, 0.6);
+        background: url(../img/forest.jpg) top center no-repeat;
+        background-size: cover;
+    }
+    #body-foreground {
+        position: relative;
+        padding-bottom: 3rem;
+        background: hsla(192, 10%, 100%, 0.2);
+    }
+    .wrapper {
+        margin: 10rem calc(44% - 44rem);
     }
     .contact {
         margin: 10rem calc(49vw - 44rem);
         width: 100vw;
         max-width: 80rem;
     }
+    #actions-container {
+        position: relative;
+        padding-top: 1rem;
+    }
+    #actions.top .action {
+        z-index: auto;
+        max-width: none;
+    }
+    #actions.top .action-text {
+        display: inline;
+    }
+    #actions.top {
+        width: 100%;
+        margin: 0 calc(56% - 56rem);
+        flex-flow: row-reverse;
+    }
+    #actions.top .action.primary {
+        margin-left: 2rem;
+    }
+    #actions.top .action {
+        border-radius: 4px;
+    }
 }
+
 
 /*screen vs print*/
 
@@ -503,31 +595,9 @@ print {
         text-decoration: underline;
     }
     .material,
-    .button.general {
-        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.12);
+    .button.material {
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.12);
         border: none;
-    }
-    .actions {
-        position: fixed;
-        right: 2rem;
-        top: 1rem;
-        z-index: 1;
-    }
-    .actions>.action {
-        height: 4rem;
-        margin-bottom: 1rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .material.primary {
-        height: 4.5rem;
-        background-color: hsl(148, 60%, 47%);
-        font-size: 1.5rem;
-    }
-    .material.secondary {
-        background: hsl(207, 2%, 50%);
-        font-size: 2rem;
     }
 }
 
@@ -536,9 +606,12 @@ print {
 }
 
 @media print {
+    html {
+        font-size: 7.8px;
+    }
     html,
     body,
-    main {
+    .wrapper {
         width: 100%;
         height: 100%;
         margin: 0;
@@ -547,8 +620,8 @@ print {
     body {
         color: hsl(207, 20%, 32%);
     }
-    .print {
-        display: block;
+    .noprint {
+        display: none;
     }
     .footer {
         position: absolute;

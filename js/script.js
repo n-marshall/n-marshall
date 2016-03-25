@@ -3,6 +3,7 @@ var contactForm = document.getElementById('contact-form');
 var emailField = document.getElementById('email-field');
 var messageField = document.getElementById('message-field');
 var submitButton = document.getElementById('submit-button');
+var actions = document.getElementById('actions');
 
 var request = new XMLHttpRequest();
 request.open('POST', 'http://formspree.io/marshall.nicolas@gmail.com', true);
@@ -27,13 +28,24 @@ function addEventListeners() {
     document.addEventListener('click', clickHandler);
     document.addEventListener('focusout', focusOutHandler);
     document.addEventListener('backbutton', backButtonHandler);
-    /*
-        contactForm.addEventListener('submit', submitHandler);*/
+    document.addEventListener('scroll', scrollHandler);
 }
 
-/*function submitHandler(e) {
-    e.preventDefault();
-}*/
+function scrollHandler() {
+    scrollPosition = window.pageYOffset | document.body.scrollTop;
+
+    //sticky actions
+    if (scrollPosition > 50) {
+        actions.classList.remove('top');
+        var newContactsPosition = scrollPosition+150;
+        actions.style.paddingTop = newContactsPosition + 'px';
+    } else {
+        actions.classList.add('top');
+        actions.style.paddingTop = '';
+
+    }
+}
+
 
 function keyDownHandler(e) {
     var keyCode = e.which;
@@ -74,7 +86,7 @@ function clickHandler(e) {
                             clearTimeout(loadingAlert);
                             setTimeout(function() {
                                 closeContact();
-                                setTimeout(function(){
+                                setTimeout(function() {
                                     contactForm.classList.remove('sent');
                                 }, 600);
                             }, 2400);
