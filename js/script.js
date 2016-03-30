@@ -10,21 +10,13 @@ request.open('POST', 'http://formspree.io/marshall.nicolas@gmail.com', true);
 request.setRequestHeader('accept', 'application/json');
 
 window.onload = function() {
-        setAge();
-        contactForm.isActive = false;
-        /*document.isMobile = /Mobi/.test(navigator.userAgent);
-        alert(document.isMobile);*/
-        addEventListeners();
-        addPrintIframe();
-        /*
-            setContactFormMaxHeight();*/
-    }
-    /*
-    function setContactFormMaxHeight() {
-        var h = contactForm.offsetHeight;
-        console.log(h + 'px')
-        contactForm.style.maxHeight = 'calc(' + h + 'px + 5em)'; //todo: update
-    }*/
+    contactForm.isActive = false;
+    /* document.isMobile = /Mobi/.test(navigator.userAgent);*/
+
+    setAge();
+    addEventListeners();
+    addPrintIframe();
+}
 
 function addEventListeners() {
     document.addEventListener("keydown", keyDownHandler);
