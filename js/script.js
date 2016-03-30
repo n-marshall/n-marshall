@@ -10,20 +10,21 @@ request.open('POST', 'http://formspree.io/marshall.nicolas@gmail.com', true);
 request.setRequestHeader('accept', 'application/json');
 
 window.onload = function() {
-    setAge();
-    contactForm.isActive = false;
-    document.isMobile = /Mobi/.test(navigator.userAgent);
-    alert(document.isMobile);
-    addEventListeners();
-    addPrintIframe();
-    setContactFormMaxHeight();
-}
-
-function setContactFormMaxHeight() {
-    var h = contactForm.offsetHeight;
-    console.log(h + 'px')
-    contactForm.style.maxHeight = 'calc(' + h + 'px + 5em)'; //todo: update
-}
+        setAge();
+        contactForm.isActive = false;
+        /*document.isMobile = /Mobi/.test(navigator.userAgent);
+        alert(document.isMobile);*/
+        addEventListeners();
+        addPrintIframe();
+        /*
+            setContactFormMaxHeight();*/
+    }
+    /*
+    function setContactFormMaxHeight() {
+        var h = contactForm.offsetHeight;
+        console.log(h + 'px')
+        contactForm.style.maxHeight = 'calc(' + h + 'px + 5em)'; //todo: update
+    }*/
 
 function addEventListeners() {
     document.addEventListener("keydown", keyDownHandler);
@@ -39,7 +40,7 @@ function scrollHandler() {
     //sticky actions
     if (scrollPosition > 50) {
         actions.classList.remove('top');
-        var newContactsPosition = scrollPosition+150;
+        var newContactsPosition = scrollPosition + 150;
         actions.style.paddingTop = newContactsPosition + 'px';
     } else {
         actions.classList.add('top');
@@ -47,7 +48,6 @@ function scrollHandler() {
 
     }
 }
-
 
 function keyDownHandler(e) {
     var keyCode = e.which;
@@ -80,7 +80,7 @@ function clickHandler(e) {
                     if (request.readyState < 4) {
                         alert('There seems to be a problem sending your message. Sorry about that ! Please try again later.');
                     }
-                }, 15000);;
+                }, 15000);
                 request.onreadystatechange = function() {
                     if (request.readyState === 4) {
                         if (request.status == 200 && request.status < 300) {
@@ -99,9 +99,11 @@ function clickHandler(e) {
                 }
             } else {
                 updateValidityHint(messageField);
+                messageField.focus();
             }
         } else {
             updateValidityHint(emailField);
+            emailField.focus();
         }
 
     }
