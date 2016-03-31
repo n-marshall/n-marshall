@@ -127,17 +127,21 @@ function backButtonHandler() { //not working
 }
 
 function triggerPrint() {
+    if (!document.isMobile) {
         var getMyFrame = document.getElementById('iFramePdf');
         getMyFrame.focus();
         getMyFrame.contentWindow.print();
+    }
 }
 
 function addPrintIframe() {
+    if (!document.isMobile) {
         var iFramePdf = document.createElement('iframe');
         iFramePdf.id = "iFramePdf";
         iFramePdf.src = "pdf/Nicolas-Marshall-Resume.pdf";
         iFramePdf.style.display = 'none';
         document.body.appendChild(iFramePdf);
+    }
 }
 
 function setAge() {
@@ -154,7 +158,9 @@ function setAge() {
 function toggleContact() {
     contactForm.isActive = !contactForm.isActive;
     contactLayer.classList.toggle('active');
-    emailField.focus();
+    if (contactForm.isActive) {
+        emailField.focus();
+    }
 }
 
 function closeContact() {
