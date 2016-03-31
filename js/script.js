@@ -127,7 +127,7 @@ function backButtonHandler() { //not working
 }
 
 function triggerPrint() {
-    if !document.isMobile {
+    if (!document.isMobile) {
         var getMyFrame = document.getElementById('iFramePdf');
         getMyFrame.focus();
         getMyFrame.contentWindow.print();
@@ -135,7 +135,7 @@ function triggerPrint() {
 }
 
 function addPrintIframe() {
-    if !document.isMobile {
+    if (!document.isMobile) {
         var iFramePdf = document.createElement('iframe');
         iFramePdf.id = "iFramePdf";
         iFramePdf.src = "pdf/Nicolas-Marshall-Resume.pdf";
