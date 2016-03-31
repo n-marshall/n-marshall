@@ -32,7 +32,7 @@ function scrollHandler() {
     //sticky actions
     if (scrollPosition > 50) {
         actions.classList.remove('top');
-        var newContactsPosition = scrollPosition + 150;
+        var newContactsPosition = scrollPosition + 100;
         actions.style.paddingTop = newContactsPosition + 'px';
     } else {
         actions.classList.add('top');
