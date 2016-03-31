@@ -89,7 +89,7 @@ function clickHandler(e) {
                                     contactForm.classList.remove('sent');
                                     initRequest();
                                 }, 600);
-                            }, 2400);
+                            }, 3000);
                         } else {
                             alert('There was a problem sending your message. Sorry about that ! Please try again later.');
                         }
