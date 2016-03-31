@@ -1,21 +1,26 @@
-var contactLayer = document.getElementById('contact-layer');
-var contactForm = document.getElementById('contact-form');
-var emailField = document.getElementById('email-field');
-var messageField = document.getElementById('message-field');
-var submitButton = document.getElementById('submit-button');
-var actions = document.getElementById('actions');
-
-var request = new XMLHttpRequest();
-request.open('POST', 'http://formspree.io/marshall.nicolas@gmail.com', true);
-request.setRequestHeader('accept', 'application/json');
+var contactLayer, contactForm, emailField, messageField, submitButton, actions, request;
 
 window.onload = function() {
+    contactLayer = document.getElementById('contact-layer');
+    contactForm = document.getElementById('contact-form');
+    emailField = document.getElementById('email-field');
+    messageField = document.getElementById('message-field');
+    submitButton = document.getElementById('submit-button');
+    actions = document.getElementById('actions');
+
     contactForm.isActive = false;
     document.isMobile = /Mobi/.test(navigator.userAgent);
 
     setAge();
     addEventListeners();
+    initRequest();
     addPrintIframe();
+}
+
+function initRequest() {
+    request = new XMLHttpRequest();
+    request.open('POST', 'http://formspree.io/marshall.nicolas@gmail.com', true);
+    request.setRequestHeader('accept', 'application/json');
 }
 
 function addEventListeners() {
