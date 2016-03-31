@@ -412,13 +412,12 @@ textarea:focus {
 }
 
 .sent {
-    max-height: 4em;
-    margin-top: 50%;
     transition: all 0.5s ease 0s;
 }
 
 .confirmation {
     position: absolute;
+    display: flex;
     justify-content: center;
     align-items: center;
     top: 0;

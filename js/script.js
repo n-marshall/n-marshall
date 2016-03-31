@@ -87,6 +87,7 @@ function clickHandler(e) {
                                 closeContact();
                                 setTimeout(function() {
                                     contactForm.classList.remove('sent');
+                                    initRequest();
                                 }, 600);
                             }, 2400);
                         } else {
