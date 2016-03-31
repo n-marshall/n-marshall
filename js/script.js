@@ -11,7 +11,7 @@ request.setRequestHeader('accept', 'application/json');
 
 window.onload = function() {
     contactForm.isActive = false;
-    /* document.isMobile = /Mobi/.test(navigator.userAgent);*/
+    document.isMobile = /Mobi/.test(navigator.userAgent);
 
     setAge();
     addEventListeners();
@@ -127,17 +127,21 @@ function backButtonHandler() { //not working
 }
 
 function triggerPrint() {
-    var getMyFrame = document.getElementById('iFramePdf');
-    getMyFrame.focus();
-    getMyFrame.contentWindow.print();
+    if !document.isMobile {
+        var getMyFrame = document.getElementById('iFramePdf');
+        getMyFrame.focus();
+        getMyFrame.contentWindow.print();
+    }
 }
 
 function addPrintIframe() {
-    var iFramePdf = document.createElement('iframe');
-    iFramePdf.id = "iFramePdf";
-    iFramePdf.src = "pdf/Nicolas-Marshall-Resume.pdf";
-    iFramePdf.style.display = 'none';
-    document.body.appendChild(iFramePdf);
+    if !document.isMobile {
+        var iFramePdf = document.createElement('iframe');
+        iFramePdf.id = "iFramePdf";
+        iFramePdf.src = "pdf/Nicolas-Marshall-Resume.pdf";
+        iFramePdf.style.display = 'none';
+        document.body.appendChild(iFramePdf);
+    }
 }
 
 function setAge() {

@@ -522,6 +522,9 @@ print {
     .social .social-text {
         display: none;
     }
+    .experience-item:before {
+        left:-1rem;
+    }
 }
 
 @media (min-width: 721px),
