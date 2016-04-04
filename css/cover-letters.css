@@ -1,0 +1,20 @@
+#letter-body h6, {
+    color: hsl(200, 25%, 25%);
+}
+
+#letter-body p {
+	margin-top:1rem;
+	margin-bottom:2.2rem;
+}
+
+#letter-body .signature {
+	color: hsl(200,15%,35%);
+	font-size:1.06em;
+	font-weight: bold;
+	padding-bottom: 0;
+}
+
+#letter-body .recipient {
+	margin-bottom: 5rem;
+	margin-top: 4rem;
+}
